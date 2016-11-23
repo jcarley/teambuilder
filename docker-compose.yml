@@ -1,0 +1,11 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5.3
+    ports:
+      - "5432:5432"
+    environment:
+      - TERM=xterm
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_USER=admin
+      - POSTGRES_DB=trunkmonkey_dev

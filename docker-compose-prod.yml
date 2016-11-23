@@ -1,0 +1,22 @@
+version: '2'
+services:
+  db:
+    image: postgres:9.5.3
+    ports:
+      - "5432:5432"
+    environment:
+      - TERM=xterm
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_DB=trunkmonkey_prod
+  web:
+    build: .
+    command: mix phoenix.server
+    volumes:
+      - .:/app
+    ports:
+      - "4000:4000"
+    environment:
+      - PORT=4000
+    depends_on:
+      - db
