@@ -1,0 +1,32 @@
+<h2>Listing sheets</h2>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Start date</th>
+      <th>End date</th>
+
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+<%= for sheet <- @sheets do %>
+    <tr>
+      <td><%= sheet.name %></td>
+      <td><%= sheet.description %></td>
+      <td><%= sheet.start_date %></td>
+      <td><%= sheet.end_date %></td>
+
+      <td class="text-right">
+        <%= link "Show", to: sheet_path(@conn, :show, sheet), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: sheet_path(@conn, :edit, sheet), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: sheet_path(@conn, :delete, sheet), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+      </td>
+    </tr>
+<% end %>
+  </tbody>
+</table>
+
+<%= link "New sheet", to: sheet_path(@conn, :new) %>

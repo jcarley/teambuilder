@@ -1,0 +1,6 @@
+<h2>Edit sheet</h2>
+
+<%= render "form.html", changeset: @changeset,
+                        action: sheet_path(@conn, :update, @sheet) %>
+
+<%= link "Back", to: sheet_path(@conn, :index) %>

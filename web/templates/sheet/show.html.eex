@@ -1,0 +1,28 @@
+<h2>Show sheet</h2>
+
+<ul>
+
+  <li>
+    <strong>Name:</strong>
+    <%= @sheet.name %>
+  </li>
+
+  <li>
+    <strong>Description:</strong>
+    <%= @sheet.description %>
+  </li>
+
+  <li>
+    <strong>Start date:</strong>
+    <%= @sheet.start_date %>
+  </li>
+
+  <li>
+    <strong>End date:</strong>
+    <%= @sheet.end_date %>
+  </li>
+
+</ul>
+
+<%= link "Edit", to: sheet_path(@conn, :edit, @sheet) %>
+<%= link "Back", to: sheet_path(@conn, :index) %>

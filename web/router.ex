@@ -18,6 +18,7 @@ defmodule Teambuilder.Router do
 
     get "/", PageController, :index
     resources "/teams", TeamController
+    resources "/sheets", SheetController
   end
 
   # Other scopes may use custom stacks.
