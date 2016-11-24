@@ -13,6 +13,11 @@
   </li>
 
   <li>
+    <strong>Type:</strong>
+    <%= @sheet.type %>
+  </li>
+
+  <li>
     <strong>Start date:</strong>
     <%= @sheet.start_date %>
   </li>

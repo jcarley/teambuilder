@@ -18,6 +18,12 @@
   </div>
 
   <div class="form-group">
+    <%= label f, :type, class: "control-label" %>
+    <%= select f, :type, ["Brint it": "brintit", "Vote up": "voteup"], prompt: "Select type", class: "form-control" %>
+    <%= error_tag f, :type %>
+  </div>
+
+  <div class="form-group">
     <%= label f, :start_date, class: "control-label" %>
     <%= datetime_select f, :start_date, class: "form-control" %>
     <%= error_tag f, :start_date %>
