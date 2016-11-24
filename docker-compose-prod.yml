@@ -9,7 +9,7 @@ services:
       - POSTGRES_USER=admin
       - POSTGRES_PASSWORD=password
       - POSTGRES_DB=trunkmonkey_prod
-  web:
+  app:
     build: .
     command: mix phoenix.server
     volumes:
@@ -20,3 +20,7 @@ services:
       - PORT=4000
     depends_on:
       - db
+  web:
+    image: nginx:latest
+    ports:
+      - "80:80"
