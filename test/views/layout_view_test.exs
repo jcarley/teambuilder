@@ -1,3 +1,3 @@
-defmodule Trunkmonkey.LayoutViewTest do
-  use Trunkmonkey.ConnCase, async: true
+defmodule Teambuilder.LayoutViewTest do
+  use Teambuilder.ConnCase, async: true
 end

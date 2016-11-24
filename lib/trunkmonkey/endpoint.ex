@@ -1,7 +1,7 @@
-defmodule Trunkmonkey.Endpoint do
+defmodule Teambuilder.Endpoint do
   use Phoenix.Endpoint, otp_app: :teambuilder
 
-  socket "/socket", Trunkmonkey.UserSocket
+  socket "/socket", Teambuilder.UserSocket
 
   # Serve at "/" the static files from "priv/static" directory.
   #
@@ -38,5 +38,5 @@ defmodule Trunkmonkey.Endpoint do
     key: "_teambuilder_key",
     signing_salt: "JKguoa7A"
 
-  plug Trunkmonkey.Router
+  plug Teambuilder.Router
 end

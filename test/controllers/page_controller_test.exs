@@ -1,5 +1,5 @@
-defmodule Trunkmonkey.PageControllerTest do
-  use Trunkmonkey.ConnCase
+defmodule Teambuilder.PageControllerTest do
+  use Teambuilder.ConnCase
 
   test "GET /", %{conn: conn} do
     conn = get conn, "/"

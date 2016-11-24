@@ -1,12 +1,12 @@
-defmodule Trunkmonkey.Web do
+defmodule Teambuilder.Web do
   @moduledoc """
   A module that keeps using definitions for controllers,
   views and so on.
 
   This can be used in your application as:
 
-      use Trunkmonkey.Web, :controller
-      use Trunkmonkey.Web, :view
+      use Teambuilder.Web, :controller
+      use Teambuilder.Web, :view
 
   The definitions below will be executed for every view,
   controller, etc, so keep them short and clean, focused
@@ -30,12 +30,12 @@ defmodule Trunkmonkey.Web do
     quote do
       use Phoenix.Controller
 
-      alias Trunkmonkey.Repo
+      alias Teambuilder.Repo
       import Ecto
       import Ecto.Query
 
-      import Trunkmonkey.Router.Helpers
-      import Trunkmonkey.Gettext
+      import Teambuilder.Router.Helpers
+      import Teambuilder.Gettext
     end
   end
 
@@ -49,9 +49,9 @@ defmodule Trunkmonkey.Web do
       # Use all HTML functionality (forms, tags, etc)
       use Phoenix.HTML
 
-      import Trunkmonkey.Router.Helpers
-      import Trunkmonkey.ErrorHelpers
-      import Trunkmonkey.Gettext
+      import Teambuilder.Router.Helpers
+      import Teambuilder.ErrorHelpers
+      import Teambuilder.Gettext
     end
   end
 
@@ -65,10 +65,10 @@ defmodule Trunkmonkey.Web do
     quote do
       use Phoenix.Channel
 
-      alias Trunkmonkey.Repo
+      alias Teambuilder.Repo
       import Ecto
       import Ecto.Query
-      import Trunkmonkey.Gettext
+      import Teambuilder.Gettext
     end
   end
 

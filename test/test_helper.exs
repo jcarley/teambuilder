@@ -1,4 +1,4 @@
 ExUnit.start
 
-Ecto.Adapters.SQL.Sandbox.mode(Trunkmonkey.Repo, :manual)
+Ecto.Adapters.SQL.Sandbox.mode(Teambuilder.Repo, :manual)
 

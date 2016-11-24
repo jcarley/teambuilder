@@ -1,4 +1,4 @@
-defmodule Trunkmonkey.ChannelCase do
+defmodule Teambuilder.ChannelCase do
   @moduledoc """
   This module defines the test case to be used by
   channel tests.
@@ -20,22 +20,22 @@ defmodule Trunkmonkey.ChannelCase do
       # Import conveniences for testing with channels
       use Phoenix.ChannelTest
 
-      alias Trunkmonkey.Repo
+      alias Teambuilder.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
 
       # The default endpoint for testing
-      @endpoint Trunkmonkey.Endpoint
+      @endpoint Teambuilder.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Trunkmonkey.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Teambuilder.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Trunkmonkey.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Teambuilder.Repo, {:shared, self()})
     end
 
     :ok

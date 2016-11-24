@@ -1,4 +1,4 @@
-defmodule Trunkmonkey.ErrorHelpers do
+defmodule Teambuilder.ErrorHelpers do
   @moduledoc """
   Conveniences for translating and building error messages.
   """
@@ -32,9 +32,9 @@ defmodule Trunkmonkey.ErrorHelpers do
     #     dgettext "errors", "is invalid"
     #
     if count = opts[:count] do
-      Gettext.dngettext(Trunkmonkey.Gettext, "errors", msg, msg, count, opts)
+      Gettext.dngettext(Teambuilder.Gettext, "errors", msg, msg, count, opts)
     else
-      Gettext.dgettext(Trunkmonkey.Gettext, "errors", msg, opts)
+      Gettext.dgettext(Teambuilder.Gettext, "errors", msg, opts)
     end
   end
 end

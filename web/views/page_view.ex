@@ -1,3 +1,3 @@
-defmodule Trunkmonkey.PageView do
-  use Trunkmonkey.Web, :view
+defmodule Teambuilder.PageView do
+  use Teambuilder.Web, :view
 end

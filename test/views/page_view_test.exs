@@ -1,3 +1,3 @@
-defmodule Trunkmonkey.PageViewTest do
-  use Trunkmonkey.ConnCase, async: true
+defmodule Teambuilder.PageViewTest do
+  use Teambuilder.ConnCase, async: true
 end

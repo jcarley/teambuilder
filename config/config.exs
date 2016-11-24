@@ -7,14 +7,14 @@ use Mix.Config
 
 # General application configuration
 config :teambuilder,
-  ecto_repos: [Trunkmonkey.Repo]
+  ecto_repos: [Teambuilder.Repo]
 
 # Configures the endpoint
-config :teambuilder, Trunkmonkey.Endpoint,
+config :teambuilder, Teambuilder.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Cj0nEIF3HDwYHhCALh1rjkb/q294WvDjCSKmCben4U8LQmR29AWhBw+Smf8YJTEl",
-  render_errors: [view: Trunkmonkey.ErrorView, accepts: ~w(html json)],
-  pubsub: [name: Trunkmonkey.PubSub,
+  render_errors: [view: Teambuilder.ErrorView, accepts: ~w(html json)],
+  pubsub: [name: Teambuilder.PubSub,
            adapter: Phoenix.PubSub.PG2]
 
 # Configures Elixir's Logger

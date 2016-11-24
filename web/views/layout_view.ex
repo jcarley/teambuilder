@@ -1,3 +1,3 @@
-defmodule Trunkmonkey.LayoutView do
-  use Trunkmonkey.Web, :view
+defmodule Teambuilder.LayoutView do
+  use Teambuilder.Web, :view
 end

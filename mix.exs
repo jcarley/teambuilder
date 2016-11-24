@@ -1,4 +1,4 @@
-defmodule Trunkmonkey.Mixfile do
+defmodule Teambuilder.Mixfile do
   use Mix.Project
 
   def project do
@@ -17,7 +17,7 @@ defmodule Trunkmonkey.Mixfile do
   #
   # Type `mix help compile.app` for more information.
   def application do
-    [mod: {Trunkmonkey, []},
+    [mod: {Teambuilder, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
                     :phoenix_ecto, :postgrex]]
   end

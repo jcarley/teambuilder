@@ -1,4 +1,4 @@
-defmodule Trunkmonkey.ConnCase do
+defmodule Teambuilder.ConnCase do
   @moduledoc """
   This module defines the test case to be used by
   tests that require setting up a connection.
@@ -20,23 +20,23 @@ defmodule Trunkmonkey.ConnCase do
       # Import conveniences for testing with connections
       use Phoenix.ConnTest
 
-      alias Trunkmonkey.Repo
+      alias Teambuilder.Repo
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
 
-      import Trunkmonkey.Router.Helpers
+      import Teambuilder.Router.Helpers
 
       # The default endpoint for testing
-      @endpoint Trunkmonkey.Endpoint
+      @endpoint Teambuilder.Endpoint
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Trunkmonkey.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Teambuilder.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Trunkmonkey.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Teambuilder.Repo, {:shared, self()})
     end
 
     {:ok, conn: Phoenix.ConnTest.build_conn()}

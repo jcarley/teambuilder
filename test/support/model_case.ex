@@ -1,4 +1,4 @@
-defmodule Trunkmonkey.ModelCase do
+defmodule Teambuilder.ModelCase do
   @moduledoc """
   This module defines the test case to be used by
   model tests.
@@ -16,20 +16,20 @@ defmodule Trunkmonkey.ModelCase do
 
   using do
     quote do
-      alias Trunkmonkey.Repo
+      alias Teambuilder.Repo
 
       import Ecto
       import Ecto.Changeset
       import Ecto.Query
-      import Trunkmonkey.ModelCase
+      import Teambuilder.ModelCase
     end
   end
 
   setup tags do
-    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Trunkmonkey.Repo)
+    :ok = Ecto.Adapters.SQL.Sandbox.checkout(Teambuilder.Repo)
 
     unless tags[:async] do
-      Ecto.Adapters.SQL.Sandbox.mode(Trunkmonkey.Repo, {:shared, self()})
+      Ecto.Adapters.SQL.Sandbox.mode(Teambuilder.Repo, {:shared, self()})
     end
 
     :ok
@@ -59,7 +59,7 @@ defmodule Trunkmonkey.ModelCase do
   """
   def errors_on(struct, data) do
     struct.__struct__.changeset(struct, data)
-    |> Ecto.Changeset.traverse_errors(&Trunkmonkey.ErrorHelpers.translate_error/1)
+    |> Ecto.Changeset.traverse_errors(&Teambuilder.ErrorHelpers.translate_error/1)
     |> Enum.flat_map(fn {key, errors} -> for msg <- errors, do: {key, msg} end)
   end
 end
