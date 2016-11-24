@@ -1,0 +1,28 @@
+$icon-font-path: "/fonts/";
+@import "bootstrap";
+
+body {
+  padding-top: 70px;
+}
+
+.title {
+  font-size: 24pt
+}
+
+.description {
+  font-size: 18pt
+}
+
+.btn-group {
+  .btn {
+    margin-left: 10px;
+  }
+}
+
+.error-text {
+  .help-block {
+    color: red;
+  }
+}
+
+.alert:empty { display: none; }
