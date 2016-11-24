@@ -1,5 +1,5 @@
 defmodule Trunkmonkey.Endpoint do
-  use Phoenix.Endpoint, otp_app: :trunkmonkey
+  use Phoenix.Endpoint, otp_app: :teambuilder
 
   socket "/socket", Trunkmonkey.UserSocket
 
@@ -8,7 +8,7 @@ defmodule Trunkmonkey.Endpoint do
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
   plug Plug.Static,
-    at: "/", from: :trunkmonkey, gzip: false,
+    at: "/", from: :teambuilder, gzip: false,
     only: ~w(css fonts images js favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
@@ -35,7 +35,7 @@ defmodule Trunkmonkey.Endpoint do
   # Set :encryption_salt if you would also like to encrypt it.
   plug Plug.Session,
     store: :cookie,
-    key: "_trunkmonkey_key",
+    key: "_teambuilder_key",
     signing_salt: "JKguoa7A"
 
   plug Trunkmonkey.Router

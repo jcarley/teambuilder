@@ -2,7 +2,7 @@ defmodule Trunkmonkey.Mixfile do
   use Mix.Project
 
   def project do
-    [app: :trunkmonkey,
+    [app: :teambuilder,
      version: "0.0.1",
      elixir: "~> 1.2",
      elixirc_paths: elixirc_paths(Mix.env),

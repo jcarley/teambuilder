@@ -8,4 +8,4 @@ services:
       - TERM=xterm
       - POSTGRES_PASSWORD=password
       - POSTGRES_USER=admin
-      - POSTGRES_DB=trunkmonkey_dev
+      - POSTGRES_DB=teambuilder_dev

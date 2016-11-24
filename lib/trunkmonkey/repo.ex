@@ -1,3 +1,3 @@
 defmodule Trunkmonkey.Repo do
-  use Ecto.Repo, otp_app: :trunkmonkey
+  use Ecto.Repo, otp_app: :teambuilder
 end

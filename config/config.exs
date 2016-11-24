@@ -6,11 +6,11 @@
 use Mix.Config
 
 # General application configuration
-config :trunkmonkey,
+config :teambuilder,
   ecto_repos: [Trunkmonkey.Repo]
 
 # Configures the endpoint
-config :trunkmonkey, Trunkmonkey.Endpoint,
+config :teambuilder, Trunkmonkey.Endpoint,
   url: [host: "localhost"],
   secret_key_base: "Cj0nEIF3HDwYHhCALh1rjkb/q294WvDjCSKmCben4U8LQmR29AWhBw+Smf8YJTEl",
   render_errors: [view: Trunkmonkey.ErrorView, accepts: ~w(html json)],

@@ -2,7 +2,7 @@ use Mix.Config
 
 # We don't run a server during test. If one is required,
 # you can enable the server option below.
-config :trunkmonkey, Trunkmonkey.Endpoint,
+config :teambuilder, Trunkmonkey.Endpoint,
   http: [port: 4001],
   server: false
 
@@ -10,10 +10,10 @@ config :trunkmonkey, Trunkmonkey.Endpoint,
 config :logger, level: :warn
 
 # Configure your database
-config :trunkmonkey, Trunkmonkey.Repo,
+config :teambuilder, Trunkmonkey.Repo,
   adapter: Ecto.Adapters.Postgres,
   username: "postgres",
   password: "postgres",
-  database: "trunkmonkey_test",
+  database: "teambuilder_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox
