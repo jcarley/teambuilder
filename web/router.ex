@@ -17,6 +17,7 @@ defmodule Teambuilder.Router do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
+    resources "/teams", TeamController
   end
 
   # Other scopes may use custom stacks.
