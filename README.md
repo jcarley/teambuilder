@@ -1,4 +1,4 @@
-# Trunkmonkey
+# Teambuilder
 
 To start your Phoenix app:
 
