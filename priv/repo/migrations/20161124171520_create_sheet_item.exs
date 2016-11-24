@@ -7,9 +7,11 @@ defmodule Teambuilder.Repo.Migrations.CreateSheetItem do
       add :meta, :string
       add :type, :string
       add :owner, :string
+      add :sheet_id, references(:sheets, on_delete: :nothing)
 
       timestamps()
     end
+    create index(:sheetitems, [:sheet_id])
 
   end
 end

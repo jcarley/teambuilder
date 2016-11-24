@@ -6,6 +6,7 @@ defmodule Teambuilder.SheetItem do
     field :meta, :string
     field :type, :string
     field :owner, :string
+    belongs_to :sheet, Teambuilder.Sheet
 
     timestamps()
   end

@@ -6,6 +6,7 @@ defmodule Teambuilder.Sheet do
     field :description, :string
     field :start_date, Ecto.DateTime
     field :end_date, Ecto.DateTime
+    has_many :items, Teambuilder.SheetItem
 
     timestamps()
   end
