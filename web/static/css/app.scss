@@ -3,6 +3,8 @@ $icon-font-path: "/fonts/";
 
 body {
   padding-top: 70px;
+  font-family: Helvetica,Arial,sans-serif;
+  color: #495d62;
 }
 
 .title {
@@ -23,6 +25,49 @@ body {
   .help-block {
     color: red;
   }
+}
+
+.sheet-title {
+  font-size: 38px;
+  font-weight: 700;
+  line-height: 1.2em;
+  padding-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 0;
+}
+
+.sheet-description, .sheet-start {
+  margin-bottom: 15px;
+  line-height: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form.sheet-add-item-form {
+  $sheet-item-margin-top: 5px;
+  .sheet-item-input {
+    margin-top: $sheet-item-margin-top;
+    width: 100%;
+  }
+
+  .btn {
+    margin-top: $sheet-item-margin-top;
+    margin-right: 10px;
+    width: 100%;
+    padding: 12px 10px;
+  }
+}
+
+.sheet-item-title {
+  float: left;
+  line-height: 1.25em;
+  vertical-align: middle;
+  font-size: 18px;
+  font-weight: bold;
+  color: #34495e;
+  width: 60%;
+  padding-top: 4px;
+  padding-left: 20px;
 }
 
 .alert:empty { display: none; }

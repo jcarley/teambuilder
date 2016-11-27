@@ -28,7 +28,9 @@ defmodule Teambuilder.SheetController do
 
   def show(conn, %{"id" => id}) do
     sheet = Repo.get!(Sheet, id)
-    render(conn, "show.html", sheet: sheet)
+    sheet = Repo.preload(sheet, :items)
+
+    render(conn, "#{sheet.type}.html", sheet: sheet)
   end
 
   def edit(conn, %{"id" => id}) do
@@ -37,17 +39,19 @@ defmodule Teambuilder.SheetController do
     render(conn, "edit.html", sheet: sheet, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "sheet" => sheet_params}) do
-    sheet = Repo.get!(Sheet, id)
-    changeset = Sheet.changeset(sheet, sheet_params)
+  def update(conn, %{"id" => id, "sheet_item" => sheet_item_params}) do
 
-    case Repo.update(changeset) do
-      {:ok, sheet} ->
+    sheet = Repo.get!(Sheet, id)
+    result = Ecto.build_assoc(sheet, :items, meta: sheet_item_params)
+              |> Repo.insert
+
+    case result do
+      {:ok, _} ->
         conn
         |> put_flash(:info, "Sheet updated successfully.")
         |> redirect(to: sheet_path(conn, :show, sheet))
-      {:error, changeset} ->
-        render(conn, "edit.html", sheet: sheet, changeset: changeset)
+      {:error, _} ->
+        render(conn, "edit.html", sheet: sheet)
     end
   end
 

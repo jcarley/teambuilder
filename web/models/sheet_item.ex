@@ -3,7 +3,7 @@ defmodule Teambuilder.SheetItem do
 
   schema "sheetitems" do
     field :description, :string
-    field :meta, :string
+    field :meta, :map
     field :type, :string
     field :owner, :string
     belongs_to :sheet, Teambuilder.Sheet

@@ -7,7 +7,7 @@ defmodule Teambuilder.Sheet do
     field :type, :string
     field :start_date, Ecto.DateTime
     field :end_date, Ecto.DateTime
-    has_many :items, Teambuilder.SheetItem
+    has_many :items, Teambuilder.SheetItem, on_delete: :delete_all
 
     timestamps()
   end

@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= label f, :type, class: "control-label" %>
-    <%= select f, :type, ["Brint it": "brintit", "Vote up": "voteup"], prompt: "Select type", class: "form-control" %>
+    <%= select f, :type, ["Brint it": "bringit", "Vote up": "voteup"], prompt: "Select type", class: "form-control" %>
     <%= error_tag f, :type %>
   </div>
 

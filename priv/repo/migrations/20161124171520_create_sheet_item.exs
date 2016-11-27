@@ -4,7 +4,7 @@ defmodule Teambuilder.Repo.Migrations.CreateSheetItem do
   def change do
     create table(:sheetitems) do
       add :description, :string
-      add :meta, :string
+      add :meta, :map
       add :type, :string
       add :owner, :string
       add :sheet_id, references(:sheets, on_delete: :nothing)

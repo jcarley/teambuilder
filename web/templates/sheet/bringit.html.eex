@@ -1,0 +1,50 @@
+
+<div class="row-fluid">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="page-header">
+        <div class="sheet-title"><%= @sheet.name %></div>
+        <div class="sheet-description"><%= @sheet.description %></div>
+        <div class="sheet-start"><%= @sheet.start_date %></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row-fluid">
+  <div class="container">
+    <div class="col-md-12">
+    <table class="table">
+      <tbody>
+        <%= for item <- @sheet.items do %>
+          <tr>
+            <td><div class="sheet-item-title"><h3><%= item.meta["item"] %></h3></span></td>
+            <td><div class="sheet-item-title"><h3><%= item.meta["name"] %></h3></span></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
+
+  <%= form_tag(sheet_path(@conn, :update, "1"), method: :put, class: "form-inline sheet-add-item-form") %>
+
+  <div class="well">
+    <div class="row">
+      <div class="col-md-5">
+        <%= text_input :sheet_item, :item, class: "form-control input-lg sheet-item-input", placeholder: "Item", required: true %>
+      </div>
+
+      <div class="col-md-5">
+        <%= text_input :sheet_item, :name, class: "form-control input-lg sheet-item-input",  placeholder: "Name", required: true %>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary" data-disable-with="Adding...">Add to Sheet</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
