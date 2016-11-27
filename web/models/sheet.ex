@@ -7,6 +7,8 @@ defmodule Teambuilder.Sheet do
     field :type, :string
     field :start_date, Ecto.DateTime
     field :end_date, Ecto.DateTime
+
+    belongs_to :team, Teambuilder.Team
     has_many :items, Teambuilder.SheetItem, on_delete: :delete_all
 
     timestamps()
@@ -16,6 +18,7 @@ defmodule Teambuilder.Sheet do
     name
     type
     start_date
+    team_id
   )
 
   @optional_fields ~w(
