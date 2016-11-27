@@ -29,7 +29,6 @@ defmodule Teambuilder.SheetController do
   def show(conn, %{"id" => id}) do
     sheet = Repo.get!(Sheet, id)
     sheet = Repo.preload(sheet, :items)
-
     render(conn, "#{sheet.type}.html", sheet: sheet)
   end
 

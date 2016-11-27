@@ -17,10 +17,15 @@ services:
     ports:
       - "4000:4000"
     environment:
+      - TERM=xterm
       - PORT=4000
     depends_on:
       - db
   web:
     image: nginx:latest
+    volumes:
+      - ./ops/conf.d:/etc/nginx/conf.d
+    environment:
+      - TERM=xterm
     ports:
       - "80:80"
