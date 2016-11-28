@@ -68,11 +68,11 @@ defmodule Teambuilder.SheetController do
   end
 
   def delete(conn, %{"id" => id}) do
-    sheet = Repo.get!(Sheet, id)
+    # sheet = Repo.get!(Sheet, id)
 
     # Here we use delete! (with a bang) because we expect
     # it to always work (and if it does not, it will raise).
-    Repo.delete!(sheet)
+    # Repo.delete!(sheet)
 
     # conn
     # |> put_flash(:info, "Sheet deleted successfully.")
