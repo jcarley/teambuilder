@@ -11,7 +11,6 @@ services:
       - POSTGRES_DB=teambuilder_prod
   app:
     build: .
-    command: mix phoenix.server
     volumes:
       - .:/app
     ports:
