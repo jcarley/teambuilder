@@ -28,7 +28,7 @@
   </div>
 </div>
 
-  <%= form_tag(sheet_path(@conn, :update, "1"), method: :put, class: "form-inline sheet-add-item-form") %>
+  <%= form_tag(team_sheet_path(@conn, :update, @team, @sheet), method: :put, class: "form-inline sheet-add-item-form") %>
 
   <div class="well">
     <div class="row">

@@ -20,13 +20,13 @@
       <td><%= sheet.end_date %></td>
 
       <td class="text-right">
-        <%= link "Show", to: sheet_path(@conn, :show, sheet), class: "btn btn-default btn-xs" %>
-        <%= link "Edit", to: sheet_path(@conn, :edit, sheet), class: "btn btn-default btn-xs" %>
-        <%= link "Delete", to: sheet_path(@conn, :delete, sheet), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
+        <%= link "Show", to: team_sheet_path(@conn, :show, @team, sheet), class: "btn btn-default btn-xs" %>
+        <%= link "Edit", to: team_sheet_path(@conn, :edit, @team, sheet), class: "btn btn-default btn-xs" %>
+        <%= link "Delete", to: team_sheet_path(@conn, :delete, @team, sheet), method: :delete, data: [confirm: "Are you sure?"], class: "btn btn-danger btn-xs" %>
       </td>
     </tr>
 <% end %>
   </tbody>
 </table>
 
-<%= link "New sheet", to: sheet_path(@conn, :new) %>
+<%= link "New sheet", to: team_sheet_path(@conn, :new, @team) %>

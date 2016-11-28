@@ -1,45 +1,58 @@
 defmodule Teambuilder.SheetController do
   use Teambuilder.Web, :controller
 
+  alias Teambuilder.Team
   alias Teambuilder.Sheet
 
-  def index(conn, _params) do
-    sheets = Repo.all(Sheet)
-    render(conn, "index.html", sheets: sheets)
+  def index(conn, %{"team_id" => team_id}) do
+
+    team = Repo.get!(Team, team_id)
+    query = from s in Sheet,
+            where: s.team_id == ^team_id
+
+    sheets = query
+             |> Repo.all
+    render(conn, "index.html", team: team, sheets: sheets)
   end
 
-  def new(conn, _params) do
+  def new(conn, %{"team_id" => team_id}) do
+    team = Repo.get!(Team, team_id)
     changeset = Sheet.changeset(%Sheet{})
-    render(conn, "new.html", changeset: changeset)
+    render(conn, "new.html", team: team, changeset: changeset)
   end
 
-  def create(conn, %{"sheet" => sheet_params}) do
+  def create(conn, %{"team_id" => team_id, "sheet" => sheet_params}) do
+
+    sheet_params = Map.put(sheet_params, "team_id", team_id)
     changeset = Sheet.changeset(%Sheet{}, sheet_params)
 
     case Repo.insert(changeset) do
       {:ok, _sheet} ->
         conn
         |> put_flash(:info, "Sheet created successfully.")
-        |> redirect(to: sheet_path(conn, :index))
+        |> redirect(to: team_sheet_path(conn, :index, team_id))
       {:error, changeset} ->
         render(conn, "new.html", changeset: changeset)
     end
   end
 
-  def show(conn, %{"id" => id}) do
+  def show(conn, %{"team_id" => team_id, "id" => id}) do
+    team = Repo.get!(Team, team_id)
     sheet = Repo.get!(Sheet, id)
     sheet = Repo.preload(sheet, :items)
-    render(conn, "#{sheet.type}.html", sheet: sheet)
+    render(conn, "#{sheet.type}.html", team: team, sheet: sheet)
   end
 
-  def edit(conn, %{"id" => id}) do
+  def edit(conn, %{"team_id" => team_id, "id" => id}) do
+    team = Repo.get!(Team, team_id)
     sheet = Repo.get!(Sheet, id)
     changeset = Sheet.changeset(sheet)
-    render(conn, "edit.html", sheet: sheet, changeset: changeset)
+    render(conn, "edit.html", team: team, sheet: sheet, changeset: changeset)
   end
 
-  def update(conn, %{"id" => id, "sheet_item" => sheet_item_params}) do
+  def update(conn, %{"team_id" => team_id, "id" => id, "sheet_item" => sheet_item_params}) do
 
+    team = Repo.get!(Team, team_id)
     sheet = Repo.get!(Sheet, id)
     result = Ecto.build_assoc(sheet, :items, meta: sheet_item_params)
               |> Repo.insert
@@ -48,7 +61,7 @@ defmodule Teambuilder.SheetController do
       {:ok, _} ->
         conn
         |> put_flash(:info, "Sheet updated successfully.")
-        |> redirect(to: sheet_path(conn, :show, sheet))
+        |> redirect(to: team_sheet_path(conn, :show, team, sheet))
       {:error, _} ->
         render(conn, "edit.html", sheet: sheet)
     end
@@ -61,8 +74,8 @@ defmodule Teambuilder.SheetController do
     # it to always work (and if it does not, it will raise).
     Repo.delete!(sheet)
 
-    conn
-    |> put_flash(:info, "Sheet deleted successfully.")
-    |> redirect(to: sheet_path(conn, :index))
+    # conn
+    # |> put_flash(:info, "Sheet deleted successfully.")
+    # |> redirect(to: sheet_path(conn, :index))
   end
 end
