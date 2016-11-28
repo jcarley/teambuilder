@@ -2,5 +2,6 @@ FROM jcarley/docker-phoenix:latest
 
 ENV DEBIAN_FRONTEND=noninteractive
 
-CMD ["mix phoenix.server"]
+COPY ./run-server.sh run-server.sh
+CMD ["run-server.sh"]
 
