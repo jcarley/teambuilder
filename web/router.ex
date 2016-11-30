@@ -19,6 +19,7 @@ defmodule Teambuilder.Router do
     get "/", PageController, :index
     resources "/teams", TeamController do
       resources "/sheets", SheetController
+      # post "/sheets/:id/additem", SheetController, :additem, as: :sheet_additem
     end
   end
 

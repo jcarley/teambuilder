@@ -50,6 +50,23 @@ defmodule Teambuilder.SheetController do
     render(conn, "edit.html", team: team, sheet: sheet, changeset: changeset)
   end
 
+  def update(conn, %{"team_id" => team_id, "id" => id, "sheet" => sheet_params}) do
+
+    team = Repo.get!(Team, team_id)
+
+    sheet = Repo.get!(Sheet, id)
+    changeset = Sheet.changeset(sheet, sheet_params)
+
+    case Repo.update(changeset) do
+      {:ok, _} ->
+        conn
+        |> put_flash(:info, "Sheet updated successfully.")
+        |> redirect(to: team_sheet_path(conn, :index, team))
+      {:error, _} ->
+        render(conn, "edit.html", sheet: sheet)
+    end
+  end
+
   def update(conn, %{"team_id" => team_id, "id" => id, "sheet_item" => sheet_item_params}) do
 
     team = Repo.get!(Team, team_id)
