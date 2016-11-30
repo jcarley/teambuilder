@@ -20,7 +20,6 @@ defmodule Teambuilder.Router do
     resources "/teams", TeamController do
       resources "/sheets", SheetController
     end
-    resources "/sheets", SheetController, except: [:index]
   end
 
   # Other scopes may use custom stacks.

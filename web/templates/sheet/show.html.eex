@@ -29,5 +29,5 @@
 
 </ul>
 
-<%= link "Edit", to: sheet_path(@conn, :edit, @sheet) %>
-<%= link "Back", to: sheet_path(@conn, :index) %>
+<%= link "Edit", to: team_sheet_path(@conn, :edit, @team, @sheet) %>
+<%= link "Back", to: team_sheet_path(@conn, :index, @team) %>
