@@ -53,7 +53,6 @@ defmodule Teambuilder.SheetController do
   def update(conn, %{"team_id" => team_id, "id" => id, "sheet" => sheet_params}) do
 
     team = Repo.get!(Team, team_id)
-
     sheet = Repo.get!(Sheet, id)
     changeset = Sheet.changeset(sheet, sheet_params)
 
