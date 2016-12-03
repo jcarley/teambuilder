@@ -70,17 +70,23 @@ defmodule Teambuilder.SheetController do
 
     team = Repo.get!(Team, team_id)
     sheet = Repo.get!(Sheet, id)
-    result = Ecto.build_assoc(sheet, :items, meta: sheet_item_params)
-              |> Repo.insert
 
-    case result do
-      {:ok, _} ->
-        conn
-        |> put_flash(:info, "Sheet updated successfully.")
-        |> redirect(to: team_sheet_path(conn, :show, team, sheet))
-      {:error, _} ->
-        render(conn, "edit.html", sheet: sheet)
-    end
+    IO.inspects sheet_item_params
+
+    # result = Ecto.build_assoc(sheet, :items, meta: sheet_item_params)
+              # |> Repo.insert
+
+    conn
+    |> put_flash(:info, "Sheet updated successfully.")
+    |> redirect(to: team_sheet_path(conn, :show, team, sheet))
+    # case result do
+      # {:ok, _} ->
+        # conn
+        # |> put_flash(:info, "Sheet updated successfully.")
+        # |> redirect(to: team_sheet_path(conn, :show, team, sheet))
+      # {:error, _} ->
+        # render(conn, "edit.html", sheet: sheet)
+    # end
   end
 
   def delete(conn, %{"id" => id}) do

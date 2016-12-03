@@ -1,33 +1,67 @@
-<h2>Vote up sheet</h2>
 
-<ul>
+<div class="row-fluid">
+  <div class="container">
+    <div class="col-md-12">
+      <div class="page-header">
+        <div class="sheet-title"><%= @sheet.name %></div>
+        <div class="sheet-description"><%= @sheet.description %></div>
+        <div class="sheet-start"><%= @sheet.start_date %></div>
+      </div>
+    </div>
+  </div>
+</div>
 
-  <li>
-    <strong>Name:</strong>
-    <%= @sheet.name %>
-  </li>
+<div class="row-fluid">
+  <div class="container">
+    <div class="col-md-12">
+    <table class="table">
+      <tbody>
+        <%= for item <- @sheet.items do %>
+          <tr>
+            <td>
+              <div class="vote">
 
-  <li>
-    <strong>Description:</strong>
-    <%= @sheet.description %>
-  </li>
+                <%= link to: team_sheet_path(@conn, :update, @team, @sheet), method: :put do %>
+                  <%= hidden_input :sheet_item, :vote_count, value: "1"  %>
+                  <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
+                <% end %>
 
-  <li>
-    <strong>Type:</strong>
-    <%= @sheet.type %>
-  </li>
+                <h3><%= item.meta["vote_count"] || 0 %></h3>
 
-  <li>
-    <strong>Start date:</strong>
-    <%= @sheet.start_date %>
-  </li>
+                <%= link to: team_sheet_path(@conn, :update, @team, @sheet), method: :put do %>
+                  <%= hidden_input :sheet_item, :vote_count, value: "-1"  %>
+                  <span class="glyphicon glyphicon-triangle-bottom " aria-hidden="true"></span>
+                <% end %>
 
-  <li>
-    <strong>End date:</strong>
-    <%= @sheet.end_date %>
-  </li>
+              </div>
+            </td>
+            <td><div class="sheet-item-title"><h3><%= item.meta["item"] %></h3></span></td>
+            <td><div class="sheet-item-title"><h3><%= item.meta["name"] %></h3></span></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</div>
 
-</ul>
+  <%= form_tag(team_sheet_path(@conn, :update, @team, @sheet), method: :put, class: "form-inline sheet-add-item-form") %>
 
-<%= link "Edit", to: team_sheet_path(@conn, :edit, @team, @sheet) %>
-<%= link "Back", to: team_sheet_path(@conn, :index, @team) %>
+  <div class="well">
+    <div class="row">
+      <div class="col-md-5">
+        <%= text_input :sheet_item, :item, class: "form-control input-lg sheet-item-input", placeholder: "Item", required: true %>
+      </div>
+
+      <div class="col-md-5">
+        <%= text_input :sheet_item, :name, class: "form-control input-lg sheet-item-input",  placeholder: "Name", required: true %>
+      </div>
+
+      <div class="col-md-2">
+        <button type="submit" class="btn btn-primary" data-disable-with="Adding...">Add to Sheet</button>
+      </div>
+    </div>
+  </div>
+
+</form>
+
