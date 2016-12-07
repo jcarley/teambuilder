@@ -12,8 +12,8 @@ config :logger, level: :warn
 # Configure your database
 config :teambuilder, Teambuilder.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: "postgres",
-  password: "postgres",
+  username: "admin",
+  password: "password",
   database: "teambuilder_test",
   hostname: "localhost",
   pool: Ecto.Adapters.SQL.Sandbox

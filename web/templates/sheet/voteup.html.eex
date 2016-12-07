@@ -21,14 +21,14 @@
             <td>
               <div class="vote">
 
-                <%= link to: team_sheet_path(@conn, :update, @team, @sheet), method: :put do %>
+                <%= link to: team_sheet_voteup_path(@conn, :update, @team, @sheet, item), method: :put do %>
                   <%= hidden_input :sheet_item, :vote_count, value: "1"  %>
                   <span class="glyphicon glyphicon-triangle-top" aria-hidden="true"></span>
                 <% end %>
 
                 <h3><%= item.meta["vote_count"] || 0 %></h3>
 
-                <%= link to: team_sheet_path(@conn, :update, @team, @sheet), method: :put do %>
+                <%= link to: team_sheet_voteup_path(@conn, :update, @team, @sheet, item), method: :put do %>
                   <%= hidden_input :sheet_item, :vote_count, value: "-1"  %>
                   <span class="glyphicon glyphicon-triangle-bottom " aria-hidden="true"></span>
                 <% end %>
@@ -45,7 +45,7 @@
   </div>
 </div>
 
-  <%= form_tag(team_sheet_path(@conn, :update, @team, @sheet), method: :put, class: "form-inline sheet-add-item-form") %>
+  <%= form_tag(team_sheet_voteup_path(@conn, :create, @team, @sheet), method: :post, class: "form-inline sheet-add-item-form") %>
 
   <div class="well">
     <div class="row">

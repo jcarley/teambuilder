@@ -69,7 +69,6 @@ exports.config = {
   modules: {
     autoRequire: {
       "js/app.js": [
-        "bootstrap-sass",
         "web/static/js/app"
       ]
     }
