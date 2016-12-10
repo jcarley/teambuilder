@@ -15,5 +15,6 @@
 </ul>
 
 <%= link "Add sheet", to: team_sheet_path(@conn, :new, @team) %> |
+<%= link "Sheets", to: team_sheet_path(@conn, :index, @team) %> |
 <%= link "Edit", to: team_path(@conn, :edit, @team) %> |
 <%= link "Back", to: team_path(@conn, :index) %>
